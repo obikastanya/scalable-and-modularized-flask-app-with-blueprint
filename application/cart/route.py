@@ -1,9 +1,8 @@
-from sys import prefix
 from flask import Blueprint
 
 cart=Blueprint(
     'cart', __name__, static_folder='/static', template_folder='templates',
-    prefix='/cart'
+    url_prefix='/cart'
     )
 
 @cart.get('/')

@@ -2,7 +2,7 @@ from flask import Blueprint
 
 user=Blueprint(
     'user', __name__, static_folder='/static', template_folder='templates',
-    prefix='/user'
+    url_prefix='/user'
     )
 
 @user.get('/')

@@ -1,4 +1,4 @@
-from flask import Blueprint
+from flask import Blueprint, render_template
 
 user=Blueprint(
     'user', __name__, static_folder='/static', template_folder='templates',
@@ -7,4 +7,4 @@ user=Blueprint(
 
 @user.get('/')
 def index():
-    return '<h1>This is user module</h1>'
+    return render_template('user.html')

@@ -1,4 +1,4 @@
-from flask import Blueprint
+from flask import Blueprint, render_template
 
 product=Blueprint(
     'product', __name__, static_folder='/static', template_folder='templates',
@@ -7,4 +7,4 @@ product=Blueprint(
 
 @product.get('/')
 def index():
-    return '<h1>This is product module</h1>'
+    return render_template('product.html')

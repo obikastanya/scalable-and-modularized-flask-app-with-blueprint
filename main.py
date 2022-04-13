@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from application.user.route import user
 from application.cart.route import cart
 from application.product.route import product
@@ -7,7 +7,8 @@ app=Flask(__name__)
 
 @app.get('/')
 def index():
-    return '<h1>Main menu<h1>'
+    return render_template('store.html')
+
 
 
 app.register_blueprint(user)

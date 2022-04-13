@@ -1,5 +1,53 @@
 {% extends 'index.html' %}
 
 {% block content %}
-<h1>This is cart module</h1>
+
+<div class="container pt-5 pl-2">
+    <div class="row">
+        <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">No</th>
+                <th scope="col">Product</th>
+                <th scope="col">Jumlah</th>
+                <th scope="col">Harga</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Sepatu</td>
+                <td>1</td>
+                <td>50000</td>
+                <td><button type="button" class="btn btn-danger">Hapus</button></td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Sepatu</td>
+                <td>1</td>
+                <td>50000</td>
+                <td><button type="button" class="btn btn-danger">Hapus</button></td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Sepatu</td>
+                <td>1</td>
+                <td>50000</td>
+                <td><button type="button" class="btn btn-danger">Hapus</button></td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <div class="alert alert-light" role="alert">
+            Total Harga :150000
+        </div>
+    </div>
+    <div class="row">
+        <button type="button" class="btn btn-success" style="width: 150px;" >Checkout</button>
+    </div>
+    
+</div>
+
 {% endblock %}

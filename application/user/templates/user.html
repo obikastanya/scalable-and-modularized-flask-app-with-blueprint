@@ -1,5 +1,56 @@
 {% extends 'index.html' %}
 
 {% block content %}
-<h1>This is user module</h1>
+<div class="container pt-5 pl-2">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="card m-2" style="width: 18rem;">
+                <a href="/product">  
+                <img src="/static/product_images/1.jpg" class="card-img-top" height="250">
+                </a>  
+                <div class="card-body text-center">
+                    <h5 class="card-title ">Obi Kastanya</h5>
+                    <p class="card-text">Premium member</p>
+                  </div>
+                </div>
+        </div>
+        <div class="col-md-7 pt-3">
+            <h1 class="f-6">User Information</h1>
+            <table class="table mt-2 table-borderless">
+                <tbody>
+                    <tr>
+                        <td>Username</td>
+                        <td>:</td>
+                        <td>obikastanya</td>
+                    </tr>
+                    <tr>
+                        <td>Handphone</td>
+                        <td>:</td>
+                        <td>08573129083</td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>:</td>
+                        <td>handsomeguy@gmail.com</td>
+                    </tr>
+                  <tr>
+                    <td>Tanggal Lahir</td>
+                    <td>:</td>
+                    <td>12-03-2000</td>
+                  </tr>
+                  <tr>
+                    <td>Alamat</td>
+                    <td>:</td>
+                    <td>Losari, Jl. Raya Pantura No.KM.17 No.16, Pangenan, Kec. Pangenan, Kabupaten Cirebon, Jawa Barat 45182</td>
+                  </tr>
+                  <tr>
+                    <td>Tanggal bergabung</td>
+                    <td>:</td>
+                    <td>22-07-2020</td>
+                </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
 {% endblock %}

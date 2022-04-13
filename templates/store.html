@@ -1,0 +1,24 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row pt-5">
+        {% for index in range (1,9) %}
+        <div class="col-sm-3">
+            <div class="card m-2" style="width: 18rem;">
+              <a href="/product">  
+              <img src="/static/product_images/{{index}}.jpg" class="card-img-top" height="250">
+              </a>  
+              <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Add to cart</a>
+                </div>
+              </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+{% endblock %}

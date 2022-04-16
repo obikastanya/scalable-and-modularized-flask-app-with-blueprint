@@ -1,18 +1,16 @@
 {
-    "product":[
-        {
-            "id":"",
-            "name":"",
-            "desc":"",
-            "type":"",
-            "brand":"",
-            "stock":"",
-            "weight":"",
-            "price":"",
-            "images":""
-        }
+    "products":[
+        {"id":1,"name":"Product Name","desc":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid quidem nemo incidunt veniam rerum saepe.","type":"shoes","brand":"Nike","stock":"20","weight":"1","price":24000,"images":"/static/productImages/1.jpg"},
+        {"id":2,"name":"Product Name","desc":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid quidem nemo incidunt veniam rerum saepe.","type":"shoes","brand":"Nike","stock":"20","weight":"1","price":24000,"images":"/static/productImages/2.jpg"},
+        {"id":3,"name":"Product Name","desc":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid quidem nemo incidunt veniam rerum saepe.","type":"shoes","brand":"Nike","stock":"20","weight":"1","price":24000,"images":"/static/productImages/3.jpg"},
+        {"id":4,"name":"Product Name","desc":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid quidem nemo incidunt veniam rerum saepe.","type":"shoes","brand":"Nike","stock":"20","weight":"1","price":24000,"images":"/static/productImages/4.jpg"},
+        {"id":5,"name":"Product Name","desc":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid quidem nemo incidunt veniam rerum saepe.","type":"shoes","brand":"Nike","stock":"20","weight":"1","price":24000,"images":"/static/productImages/5.jpg"},
+        {"id":6,"name":"Product Name","desc":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid quidem nemo incidunt veniam rerum saepe.","type":"shoes","brand":"Nike","stock":"20","weight":"1","price":24000,"images":"/static/productImages/6.jpg"},
+        {"id":7,"name":"Product Name","desc":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid quidem nemo incidunt veniam rerum saepe.","type":"shoes","brand":"Nike","stock":"20","weight":"1","price":24000,"images":"/static/productImages/7.jpg"},
+        {"id":8,"name":"Product Name","desc":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid quidem nemo incidunt veniam rerum saepe.","type":"shoes","brand":"Nike","stock":"20","weight":"1","price":24000,"images":"/static/productImages/8.jpg"},
+        {"id":9,"name":"Product Name","desc":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid quidem nemo incidunt veniam rerum saepe.","type":"shoes","brand":"Nike","stock":"20","weight":"1","price":24000,"images":"/static/productImages/9.jpg"}
     ],
-    "user":[
+    "users":[
         {
             "id":"",
             "nickName":"",
@@ -26,7 +24,7 @@
         }
 
     ],
-    "cart":[
+    "carts":[
         {
             "id":"",
             "owner":{

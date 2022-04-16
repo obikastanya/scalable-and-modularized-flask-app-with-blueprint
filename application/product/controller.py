@@ -6,7 +6,13 @@ class ProductController:
 
     def get(self):
         data=self.model.get()
-        print(data)
         if not data:
             return {'status':False, 'data':data, 'message':'Data is not found'}
         return {'status':True, 'data':data, 'message':''} 
+
+    
+    def getSingleProduct(self, id):
+        data=self.model.getSingleProduct(id)
+        if not data:
+            return {'status':False, 'data':[data], 'message':'Data is not found'}
+        return {'status':True, 'data':[data], 'message':''} 

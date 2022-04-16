@@ -9,8 +9,8 @@
                 <img src="/static/productImages/1.jpg" class="card-img-top" height="250">
                 </a>  
                 <div class="card-body">
-                    <h5 class="card-title">Sepatu (brand new, import)</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <h5 class="card-title" id="productName">...</h5>
+                    <p class="card-text" id="productDesc"></p>
                     </div>
                 </div>
         </div>
@@ -20,29 +20,29 @@
             <table class="table mt-2 table-borderless">
                 <tbody>
                     <tr>
-                        <td class="col-1">Jenis</td>
+                        <td class="col-1">Type</td>
                         <td>:</td>
-                        <td>Sepatu</td>
+                        <td id="type">-</td>
                     </tr>
                     <tr>
-                        <td class="col-1">Brand</td>
+                        <td class="col-1" >Brand</td>
                         <td>:</td>
-                        <td>Nike</td>
+                        <td id="brand">-</td>
                     </tr>
                     <tr>
                         <td class="col-1">Stock</td>
                         <td>:</td>
-                        <td>123</td>
+                        <td id="stock">-</td>
                     </tr>
                     <tr>
                         <td class="col-1">Berat</td>
                         <td> :</td>
-                        <td>0.5</td>
+                        <td id="weight">-</td>
                     </tr>
                     <tr>
                         <td class="col-1">Harga</td>
                         <td>:</td>
-                        <td>450000</td>
+                        <td id="price">-</td>
                     </tr>
                 </tbody>
               </table>
@@ -53,4 +53,5 @@
 {% endblock %}
 
 {% block script %}
+<script src={{ url_for('product.static', filename='js/productUI.js') }}></script>
 {% endblock %}

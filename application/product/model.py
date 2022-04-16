@@ -10,3 +10,10 @@ class Product:
     
     def get(self):
         return self.collections.get('products',[])
+
+    def getSingleProduct(self, id):
+        products=self.collections.get('products')
+        for product in products:
+            if str(product.get('id'))==id: 
+                return product
+        return {}

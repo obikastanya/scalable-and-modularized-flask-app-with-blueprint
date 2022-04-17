@@ -14,7 +14,14 @@ def index():
 def listOfCartItems():
     return CartController().getCarts()
 
-
 @cart.get('/api/total-items')
 def totalOfCartItems():
     return CartController().getTotalItemsInCart()
+
+@cart.post('/api/')
+def addNewDataToCart():
+    return CartController().addNewItemToCart()
+
+@cart.delete('/api/')
+def removeItemFromCart():
+    return CartController().removeItemFromCart()

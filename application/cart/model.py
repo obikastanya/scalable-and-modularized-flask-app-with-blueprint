@@ -1,6 +1,8 @@
 import json
 import pathlib
 
+from flask import request
+
 class Cart:
     def __init__(self):
         self.collections=json.load(self.openDb())
@@ -9,8 +11,53 @@ class Cart:
         return open(pathlib.Path().cwd()/'db.json')
     
     def getCarts(self):
-        users=self.collections.get('carts')
-        return users[0]
+        cart=self.collections.get('carts')
+        return cart[0]
+    
+    def addNewItemToCart(self, selectedProductId):
+        item=self.getSelectedItem(selectedProductId)
+        cartItems=self.collections.get('carts',{}).get('items',[])
+        cartItems.append(item)
+        self.collections.get('carts').update({'items':cartItems})
+        self.updateDb()
+    
+
+    def updateDb(self):
+        pass
+    
+    def removeItemFromCart(self):
+        itemIndex=self.findItemInCart()
+        cartItems=self.collections.get('carts',{}).get('items',[])
+        cartItems.pop(itemIndex)
+        self.collections.get('carts').update({'items':cartItems})
+        self.updateDb()
+        
+    def getSelectedItem(self, selectedProductId):
+        item={}
+        products=self.collections.get('products',[])
+        for product in products:
+            if selectedProductId==str(product.get('id')):
+                item=product
+        
+        if not item:
+            raise Exception('Product is not found')
+            
+        return item
+    
+    def findItemInCart(self):
+        itemIndex=None
+        selectedProductId=request.form.get('productId')
+
+        products=self.collections.get('carts',{}).get('items',[])
+        for index, product in enumerate(products):
+            if selectedProductId==str(product.get('id')):
+                itemIndex=index
+        
+        if not itemIndex:
+            raise Exception('Product is not found')
+            
+        return itemIndex
+
 
     def getTotalItemsInCart(self):
         users=self.collections.get('carts')

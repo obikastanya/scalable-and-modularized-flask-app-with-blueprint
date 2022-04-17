@@ -9,8 +9,6 @@ app=Flask(__name__)
 def index():
     return render_template('store.html')
 
-
-
 app.register_blueprint(user)
 app.register_blueprint(cart)
 app.register_blueprint(product)

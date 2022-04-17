@@ -1,3 +1,4 @@
+from flask import request
 from .model import Cart
 
 class CartController:
@@ -16,3 +17,22 @@ class CartController:
             return {'status':False, 'data':[{'total':data}], 'message':'Cant calculate total items in cart'}
         return {'status':True, 'data':[{'total':data}], 'message':''}
   
+    def addNewItemToCart(self):
+        try:
+            selectedProductId=request.json.get('productId')
+            self.model.addNewItemToCart(selectedProductId)
+            return {'status':True, 'data':[], 'message':'Cart is successfully updated'}
+        except Exception as MessageError:
+            return {'status':'false', 'data':[],'message':str(MessageError) }
+
+
+    def updateDb(self):
+        pass
+    
+    def removeItemFromCart(self):
+        try:
+            selectedProductId=request.json.get('productId')
+            self.model.removeItemFromCart(selectedProductId)
+            return {'status':True, 'data':[], 'message':'Cart is successfully updated'}
+        except Exception as MessageError:
+            return {'status':'false', 'data':[],'message':str(MessageError) }

@@ -6,11 +6,11 @@
         <div class="col-md-5">
             <div class="card m-2" style="width: 18rem;">
                 <a href="/product">  
-                <img src="/static/productImages/1.jpg" class="card-img-top" height="250">
+                <img src="" class="card-img-top" height="250" id="profileImage">
                 </a>  
                 <div class="card-body text-center">
-                    <h5 class="card-title ">Obi Kastanya</h5>
-                    <p class="card-text">Premium member</p>
+                    <h5 class="card-title " id="nickName">-</h5>
+                    <p class="card-text" id="memberTypes">-</p>
                   </div>
                 </div>
         </div>
@@ -21,36 +21,41 @@
                     <tr>
                         <td>Username</td>
                         <td>:</td>
-                        <td>obikastanya</td>
+                        <td id="username">-</td>
                     </tr>
                     <tr>
                         <td>Handphone</td>
                         <td>:</td>
-                        <td>08573129083</td>
+                        <td id="phone">-</td>
                     </tr>
                     <tr>
                         <td>Email</td>
                         <td>:</td>
-                        <td>handsomeguy@gmail.com</td>
+                        <td id="email">-</td>
                     </tr>
                   <tr>
-                    <td>Tanggal Lahir</td>
+                    <td>Birth</td>
                     <td>:</td>
-                    <td>12-03-2000</td>
+                    <td id="birth">-</td>
                   </tr>
                   <tr>
-                    <td>Alamat</td>
+                    <td>Address</td>
                     <td>:</td>
-                    <td>Losari, Jl. Raya Pantura No.KM.17 No.16, Pangenan, Kec. Pangenan, Kabupaten Cirebon, Jawa Barat 45182</td>
+                    <td id="address">-</td>
                   </tr>
                   <tr>
-                    <td>Tanggal bergabung</td>
+                    <td>Joined Dates</td>
                     <td>:</td>
-                    <td>22-07-2020</td>
+                    <td id="joinedDates">-</td>
                 </tr>
                 </tbody>
               </table>
         </div>
     </div>
 </div>
+{% endblock %}
+
+
+{% block script %}
+<script src={{ url_for('user.static', filename='js/userUI.js') }}></script>
 {% endblock %}

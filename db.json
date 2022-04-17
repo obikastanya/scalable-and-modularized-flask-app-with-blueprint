@@ -12,55 +12,38 @@
     ],
     "users":[
         {
-            "id":"",
-            "nickName":"",
-            "username":"",
-            "phone":"",
-            "email":"",
-            "birth":"",
-            "address":"",
-            "joinedDates":"",
-            "memberTypes":""
+            "id":"1",
+            "nickName":"Obi Kastanya",
+            "username":"obikastanya",
+            "phone":"08573129083",
+            "email":"handsomeguy@gmail.com",
+            "birth":"12-03-2000",
+            "address":"Losari, Jl. Raya Pantura No.KM.17 No.16, Pangenan, Kec. Pangenan, Kabupaten Cirebon, Jawa Barat 45182",
+            "joinedDates":"22-07-2020",
+            "memberTypes":"Premium member",
+            "images":"/static/personImages/profile1.jpg"
         }
 
     ],
     "carts":[
         {
-            "id":"",
+            "id":"1",
             "owner":{
-                "id":"",
-                "nickName":"",
-                "username":"",
-                "phone":"",
-                "email":"",
-                "birth":"",
-                "address":"",
-                "joinedDates":"",
-                "memberTypes":"" 
+                "id":"1",
+                "nickName":"Obi Kastanya",
+                "username":"obikastanya",
+                "phone":"08573129083",
+                "email":"handsomeguy@gmail.com",
+                "birth":"12-03-2000",
+                "address":"Losari, Jl. Raya Pantura No.KM.17 No.16, Pangenan, Kec. Pangenan, Kabupaten Cirebon, Jawa Barat 45182",
+                "joinedDates":"22-07-2020",
+                "memberTypes":"Premium member",
+                "images":"/static/personImages/profile1.jpg"
             }, 
             "items":[
-                {
-                    "id":"",
-                    "name":"",
-                    "desc":"",
-                    "type":"",
-                    "brand":"",
-                    "stock":"",
-                    "weight":"",
-                    "price":"",
-                    "images":""
-                },
-                {
-                    "id":"",
-                    "name":"",
-                    "desc":"",
-                    "type":"",
-                    "brand":"",
-                    "stock":"",
-                    "weight":"",
-                    "price":"",
-                    "images":""
-                }       
+                {"id":7,"name":"Product Name","desc":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid quidem nemo incidunt veniam rerum saepe.","type":"shoes","brand":"Nike","stock":"20","weight":"1","price":24000,"images":"/static/productImages/7.jpg"},
+                {"id":8,"name":"Product Name","desc":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid quidem nemo incidunt veniam rerum saepe.","type":"shoes","brand":"Nike","stock":"20","weight":"1","price":24000,"images":"/static/productImages/8.jpg"},
+                {"id":9,"name":"Product Name","desc":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid quidem nemo incidunt veniam rerum saepe.","type":"shoes","brand":"Nike","stock":"20","weight":"1","price":24000,"images":"/static/productImages/9.jpg"}               
             ]
         }
     ]

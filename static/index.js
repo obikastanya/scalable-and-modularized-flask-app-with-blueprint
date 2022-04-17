@@ -1,4 +1,4 @@
-console.log('okke')
+
 window.addEventListener('load',function(){
     console.log('woooke')
     new Api().callProducts().then(new UI().showProducts)

@@ -7,8 +7,8 @@ class CartController:
     def getCarts(self):
         data=self.model.getCarts()
         if not data:
-            return {'status':False, 'data':data, 'message':'Data is not found'}
-        return {'status':True, 'data':data, 'message':''}
+            return {'status':False, 'data':[data], 'message':'Data is not found'}
+        return {'status':True, 'data':[data], 'message':''}
 
     def getTotalItemsInCart(self):
         data=self.model.getTotalItemsInCart()

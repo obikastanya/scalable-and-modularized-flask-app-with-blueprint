@@ -2,7 +2,7 @@ from flask import Blueprint, render_template
 from .controller import CartController
 
 cart=Blueprint(
-    'cart', __name__, static_folder='/static', template_folder='templates',
+    'cart', __name__, static_folder='static', template_folder='templates',
     url_prefix='/cart'
     )
 

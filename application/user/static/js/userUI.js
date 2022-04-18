@@ -1,10 +1,10 @@
 window.addEventListener('load',function(){
-    new Api().callUser().then(new UI().showUser)
+    new Api().callApiUser().then(new UI().showUser)
 
 })
 
 class Api{
-    async callUser(){
+    async callApiUser(){
         const resp=await fetch(`/user/api/detail`)
         const jsonresp=await resp.json()
         return jsonresp

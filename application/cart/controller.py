@@ -18,12 +18,12 @@ class CartController:
         return {'status':True, 'data':[{'total':data}], 'message':''}
   
     def addNewItemToCart(self):
-        try:
+        # try:
             selectedProductId=request.json.get('productId')
             self.model.addNewItemToCart(selectedProductId)
             return {'status':True, 'data':[], 'message':'Cart is successfully updated'}
-        except Exception as MessageError:
-            return {'status':'false', 'data':[],'message':str(MessageError) }
+        # except Exception as MessageError:
+        #     return {'status':'false', 'data':[],'message':str(MessageError) }
 
 
     def updateDb(self):

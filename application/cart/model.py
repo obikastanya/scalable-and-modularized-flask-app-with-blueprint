@@ -16,22 +16,24 @@ class Cart:
     
     def addNewItemToCart(self, selectedProductId):
         item=self.getSelectedItem(selectedProductId)
-        cartItems=self.collections.get('carts',{}).get('items',[])
+        cartItems=self.collections.get('carts',[])[0].get('items',[])
         cartItems.append(item)
-        self.collections.get('carts').update({'items':cartItems})
+        self.collections.get('carts')[0].update({'items':cartItems})
         self.updateDb()
     
 
     def updateDb(self):
-        pass
+        db=open(pathlib.Path().cwd()/'db.json','w')
+        db.write( json.dumps(self.collections))
     
-    def removeItemFromCart(self):
-        itemIndex=self.findItemInCart()
-        cartItems=self.collections.get('carts',{}).get('items',[])
+    
+    def removeItemFromCart(self, selectedProductId):
+        itemIndex=self.findItemInCart(selectedProductId)
+        cartItems=self.collections.get('carts',[{}])[0].get('items',[])
         cartItems.pop(itemIndex)
-        self.collections.get('carts').update({'items':cartItems})
+        self.collections.get('carts')[0].update({'items':cartItems})
         self.updateDb()
-        
+
     def getSelectedItem(self, selectedProductId):
         item={}
         products=self.collections.get('products',[])
@@ -44,11 +46,9 @@ class Cart:
             
         return item
     
-    def findItemInCart(self):
+    def findItemInCart(self,selectedProductId):
         itemIndex=None
-        selectedProductId=request.form.get('productId')
-
-        products=self.collections.get('carts',{}).get('items',[])
+        products=self.collections.get('carts',[{}])[0].get('items',[])
         for index, product in enumerate(products):
             if selectedProductId==str(product.get('id')):
                 itemIndex=index

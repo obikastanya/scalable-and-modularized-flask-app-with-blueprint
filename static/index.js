@@ -1,8 +1,6 @@
 
 window.addEventListener('load',function(){
-    console.log('woooke')
     new Api().callProducts().then(new UI().showProducts)
-
 })
 
 class Api{
@@ -25,7 +23,8 @@ class UI{
             let card=this.createCard(product)
             productCards.push(card)
         }
-        return new Page().loadPage( productCards.join(''))
+        new Page().loadPage( productCards.join(''))
+        new Page().registerEventForAddingNewCartItem()
 
     }
     showNoDataFoundPage(){
@@ -42,7 +41,7 @@ class UI{
                   <h5 class="card-title">${product.name}</h5>
                   Rp. <h6 class="text-danger d-inline">${product.price}</h6>
                   <p class="card-text">${product.desc}</p>
-                  <a href="#" class="btn btn-primary">Add to cart</a>
+                  <a href="#" class="btn btn-primary cart-add-item">Add to cart</a>
                 </div>
               </div>
         </div>
@@ -52,8 +51,34 @@ class UI{
 }
 
 class Page{
+    
     loadPage(page){
         let productListElement=document.getElementById('productListId')
         productListElement.innerHTML=page
+    }
+    registerEventForAddingNewCartItem(){
+        const listOfActionButton=document.getElementsByClassName('cart-add-item')
+
+        for (let element of listOfActionButton){
+            element.addEventListener('click', function(){
+                new Cart().addNewItem()
+            })
+        }
+    }
+}
+class Cart{
+    async addNewItem(){
+        const resp=await fetch('/cart/api/',
+            {
+                method:'POST',
+                headers:{
+                    'Content-Type':'application/json'
+                },
+                body:JSON.stringify({'productId':'1'})
+            }
+        )
+
+        const jsonresp=await resp.json()
+        new ApiNotif().callChartNotif().then(new UINotif().showCartNotif)
     }
 }

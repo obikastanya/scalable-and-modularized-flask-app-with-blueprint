@@ -1,9 +1,9 @@
 window.addEventListener('load',function(){
-    new Api().callCart().then(new UI().showCart)
+    new Api().callApiCart().then(new UI().showCart)
 })
 
 class Api{
-    async callCart(){
+    async callApiCart(){
         const resp=await fetch(`/cart/api/`)
         const jsonresp=await resp.json()
         return jsonresp
@@ -20,9 +20,8 @@ class Api{
             }
         )
         const jsonresp=await resp.json()
-        console.log(jsonresp)
-        new ApiNotif().callChartNotif().then(new UINotif().showCartNotif)
-        new Api().callCart().then(new UI().showCart)
+        new ApiNotif().callApiCartNotif().then(new UINotif().showCartNotif)
+        new Api().callApiCart().then(new UI().showCart)
     }
 }
 
@@ -41,6 +40,8 @@ class UI{
 
         let cartTable=document.getElementById('cartItemList')
         cartTable.innerHTML=records.join('')
+        this.setTotalPrice(apiresp.data[0].totalPrice)
+
         new UI().registerListenerToRemoveItem()
     }
 
@@ -63,6 +64,10 @@ class UI{
             new Api().removeItemFromCart()
             })
         }
+    }
+
+    setTotalPrice(totalPrice){
+        document.getElementById('totalPrice').innerHTML=`Total Harga : ${totalPrice} `
     }
  }
 

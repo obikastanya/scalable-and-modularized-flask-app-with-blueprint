@@ -12,7 +12,7 @@ def index():
 
 @cart.get('/api/')
 def listOfCartItems():
-    return CartController().getCarts()
+    return CartController().getCart()
 
 @cart.get('/api/total-items')
 def totalOfCartItems():

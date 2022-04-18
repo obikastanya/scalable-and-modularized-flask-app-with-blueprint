@@ -10,7 +10,7 @@ class Cart:
     def openDb(self):
         return open(pathlib.Path().cwd()/'db.json')
     
-    def getCarts(self):
+    def getCart(self):
         cart=self.collections.get('carts')
         return cart[0]
     

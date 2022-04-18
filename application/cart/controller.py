@@ -5,11 +5,20 @@ class CartController:
     def __init__(self):
         self.model=Cart()
     
-    def getCarts(self):
-        data=self.model.getCarts()
+    def getCart(self):
+        data=self.model.getCart()
+        data.update({'totalPrice':self.getTotalPrice()})
         if not data:
             return {'status':False, 'data':[data], 'message':'Data is not found'}
         return {'status':True, 'data':[data], 'message':''}
+    
+    def getTotalPrice(self):
+        totalPrice=0
+        data=self.model.getCart()
+        for item in data.get('items'):
+            totalPrice +=item.get('price',0)
+        return totalPrice
+
 
     def getTotalItemsInCart(self):
         data=self.model.getTotalItemsInCart()

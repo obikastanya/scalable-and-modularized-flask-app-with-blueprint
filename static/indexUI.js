@@ -1,10 +1,10 @@
 
 window.addEventListener('load',function(){
-    new ApiNotif().callChartNotif().then(new UINotif().showCartNotif)
+    new ApiNotif().callApiCartNotif().then(new UINotif().showCartNotif)
 })
 
 class ApiNotif{
-    async callChartNotif(){
+    async callApiCartNotif(){
         const resp=await fetch('/cart/api/total-items')
         const jsonresp=await resp.json()
         return jsonresp
@@ -17,10 +17,6 @@ class UINotif{
     }
 
     showCartNotif(apiresp){
-        if (!apiresp.status) return this.showNoDataFoundPage;
-        document.getElementById('notifId').innerHTML=apiresp.data[0].total;        
+     document.getElementById('notifId').innerHTML=apiresp.data[0].total;        
     }
-    showNoDataFoundPage(){
-    }
-
 }

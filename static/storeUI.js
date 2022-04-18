@@ -1,33 +1,52 @@
 
 window.addEventListener('load',function(){
-    new Api().callProducts().then(new UI().showProducts)
+    new Api().callApiProducts().then(new UI().showProducts)
 })
 
+
 class Api{
-    async callProducts(){
+
+    async callApiProducts(){
         const resp=await fetch('/product/api/')
         const jsonresp=await resp.json()
         return jsonresp
     }
+
+    async addNewItem(itemId){
+        const resp=await fetch('/cart/api/',
+            {
+                method:'POST',
+                headers:{
+                    'Content-Type':'application/json'
+                },
+                body:JSON.stringify({'productId':itemId})
+            }
+        )
+
+        const jsonresp=await resp.json()
+        new ApiNotif().callApiCartNotif().then(new UINotif().showCartNotif)
+    }
+
 }
 
 class UI{
     constructor(){
         this.showProducts=this.showProducts.bind(this)
     }
+    
+    loadPage(page){
+        let productListElement=document.getElementById('productListId')
+        productListElement.innerHTML=page
+    }
 
     showProducts(apiresp){
-        if (!apiresp.status) return this.showNoDataFoundPage;
         let productCards=[]
         for (let product of apiresp.data){
             let card=this.createCard(product)
             productCards.push(card)
         }
-        new Page().loadPage( productCards.join(''))
-        new Page().registerEventForAddingNewCartItem()
-
-    }
-    showNoDataFoundPage(){
+        this.loadPage( productCards.join(''))
+        this.registerEventForAddingNewCartItem()
     }
 
     createCard(product){
@@ -41,44 +60,22 @@ class UI{
                   <h5 class="card-title">${product.name}</h5>
                   Rp. <h6 class="text-danger d-inline">${product.price}</h6>
                   <p class="card-text">${product.desc}</p>
-                  <a href="#" class="btn btn-primary cart-add-item">Add to cart</a>
+                  <button type="button" class="btn btn-primary cart-add-item" itemId=${product.id}>Add to cart</button>
                 </div>
               </div>
         </div>
         `
         return cardTemplate
     }
-}
-
-class Page{
-    
-    loadPage(page){
-        let productListElement=document.getElementById('productListId')
-        productListElement.innerHTML=page
-    }
+   
     registerEventForAddingNewCartItem(){
         const listOfActionButton=document.getElementsByClassName('cart-add-item')
 
         for (let element of listOfActionButton){
             element.addEventListener('click', function(){
-                new Cart().addNewItem()
+                new Api().addNewItem(this.getAttribute('itemId'))
             })
         }
     }
-}
-class Cart{
-    async addNewItem(){
-        const resp=await fetch('/cart/api/',
-            {
-                method:'POST',
-                headers:{
-                    'Content-Type':'application/json'
-                },
-                body:JSON.stringify({'productId':'1'})
-            }
-        )
 
-        const jsonresp=await resp.json()
-        new ApiNotif().callChartNotif().then(new UINotif().showCartNotif)
-    }
 }

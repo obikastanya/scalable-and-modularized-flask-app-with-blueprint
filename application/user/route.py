@@ -10,8 +10,6 @@ user=Blueprint(
 def index():
     return render_template('user.html')
 
-
-
 @user.get('/api/detail')
 def detailUser():
     return UserController().getUser()

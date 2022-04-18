@@ -53,7 +53,7 @@ class UI{
         const cardTemplate=`
         <div class="col-sm-3">
             <div class="card m-2" style="width: 18rem;">
-              <a href="/product">  
+              <a href="/product/${product.id}">  
               <img src="${product.images}" class="card-img-top" height="250">
               </a>  
               <div class="card-body">

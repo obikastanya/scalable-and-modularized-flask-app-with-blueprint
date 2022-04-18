@@ -1,12 +1,12 @@
 window.addEventListener('load',function(){
-    new Api().callProduct().then(new UI().showProduct)
-
+    new Api().callApiProduct().then(new UI().showDetailProduct)
 })
 
 class Api{
-    async callProduct(){
-        const productId=1
-        const resp=await fetch(`/product/api/${productId}`)
+    async callApiProduct(){
+        const urls=location.href.split('/')
+        const productId=urls[urls.length-1]
+        const resp=await fetch(`/product/api/detail/${productId}`)
         const jsonresp=await resp.json()
         return jsonresp
     }
@@ -14,11 +14,10 @@ class Api{
 
 class UI{
     constructor(){
-        this.showProduct=this.showProduct.bind(this)
+        this.showDetailProduct=this.showDetailProduct.bind(this)
     }
 
-    showProduct(apiresp){
-        if (!apiresp.status) return this.showNoDataFoundPage();
+    showDetailProduct(apiresp){
         const getEl=(id)=>document.getElementById(id);
         const product=apiresp.data[0]
         getEl('productName').innerHTML=product.name
@@ -28,6 +27,7 @@ class UI{
         getEl('stock').innerHTML=product.stock
         getEl('weight').innerHTML=product.weight
         getEl('price').innerHTML=product.price
+        getEl('productImage').setAttribute('src', product.images)
+    
     }
- }
-
+}

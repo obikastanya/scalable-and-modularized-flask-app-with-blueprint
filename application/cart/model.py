@@ -53,7 +53,7 @@ class Cart:
             if selectedProductId==str(product.get('id')):
                 itemIndex=index
         
-        if not itemIndex:
+        if itemIndex==None:
             raise Exception('Product is not found')
             
         return itemIndex

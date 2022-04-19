@@ -1,8 +1,6 @@
 import json
 import pathlib
 
-from flask import request
-
 class Cart:
     def __init__(self):
         self.collections=json.load(self.openDb())
